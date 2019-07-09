@@ -42,9 +42,9 @@ waypoints.append({
 
 # Modify the dictionary with name "a place" such that its longitude
 # value is -130 and change its name to "not a real place"
-y = [z for z in waypoints if z["name"] == "a place"]
-waypoints[waypoints.index(y[0])]["longitude"] = -130
-waypoints[waypoints.index(y[0])]["name"] = "not a real place"
+for d in waypoints:
+    if d["name"] == "a place":
+        d.update({"lon":-130,"name":"not a real place"})
 
 # Write a loop that prints out all the field values for all the waypoints
 for point in waypoints:
