@@ -22,3 +22,15 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+args = len(sys.argv) - 1
+c = calendar.TextCalendar(calendar.SUNDAY)
+
+if args == 0:
+  print(c.formatmonth(datetime.today().year, datetime.today().month))
+elif args == 1:
+  print(c.formatmonth(datetime.today().year, int(sys.argv[1])))
+elif args == 2:
+  print(c.formatmonth(int(sys.argv[2]), int(sys.argv[1])))
+else:
+  print("Expecting a command in the format of 14_cal.py month [year]")
